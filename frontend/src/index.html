@@ -1,0 +1,561 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="modal-div" class="hidden">
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-2 px-2 pb-20 text-center sm:block sm:p-0">
+      <!--
+        Background overlay, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0"
+          To: "opacity-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+      <!-- This element is to trick the browser into centering the modal contents. -->
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+
+
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title align-middle">
+                Add New Applicant
+            </h3>
+
+
+  <span class="p-4"></span>
+
+
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Name</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-name" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Kaitlin Berryman">
+  </div>
+  </div>
+
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Email</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-email" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="kberryman@gsi.com">
+  </div>
+  </div>
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Position</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-position" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Software Engineer">
+  </div>
+  </div>
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Department</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-department" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Software Engineering">
+  </div>
+  </div>
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Hiring Stage</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-hiring-stage" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Just Applied">
+  </div>
+  </div>
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Skill #1</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-skill1" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="JavaScript">
+  </div>
+  </div>
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Skill #2</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-skill2" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Python">
+  </div>
+  </div>
+
+  <span class="p-4"></span>
+
+  <div>
+  <label class="block text-sm font-medium text-gray-700">Skill #3</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input type="text" id="new-applicant-skill3" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Communication">
+  </div>
+  </div>
+
+
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <button id="new-applicant-submit-button" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+          Submit
+        </button>
+          <button id="new-applicant-cancel-button" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <!-- Sign-in and Register -->
+
+
+
+
+
+
+
+
+
+  <!-- Header -->
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+  -->
+<div class="min-h-full">
+  <nav class="bg-red-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-30 w-80" src="../assets/pics/gsi.svg" alt="Workflow">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="#" class="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="applicants-button">Applicants</a>
+              <a href="#" class="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="add-applicant-button">Add Applicant</a>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-4 flex items-center md:ml-6">
+            <button type="button" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              <span class="sr-only">View notifications</span>
+              <!-- Heroicon name: outline/bell -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button>
+
+            <!-- Profile dropdown -->
+            <div class="ml-3 relative">
+              <div>
+                <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <span class="sr-only">Open user menu</span>
+                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                </button>
+              </div>
+
+              <!--
+                Dropdown menu, show/hide based on menu state.
+
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              -->
+              <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                <!-- Active: "bg-gray-100", Not Active: "" -->
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <!-- Mobile menu button -->
+          <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!--
+              Heroicon name: outline/menu
+
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!--
+              Heroicon name: outline/x
+
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+      </div>
+      <div class="pt-4 pb-3 border-t border-gray-700">
+        <div class="flex items-center px-5">
+          <div class="flex-shrink-0">
+            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          </div>
+          <div class="ml-3">
+            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
+            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+          </div>
+          <button type="button" class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <span class="sr-only">View notifications</span>
+            <!-- Heroicon name: outline/bell -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-3 px-2 space-y-1">
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
+
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
+
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-gray-900">
+        Hiring Dashboard
+      </h1>
+    </div>
+  </header>
+  <main>
+    <div>
+      <!-- Replace with your content -->
+      <div>
+
+      </div>
+      <!-- /End replace -->
+    </div>
+  </main>
+</div>
+
+
+
+
+<!-- Category Filters -->
+<div class="flex items-stretch ...">
+
+  <div class="pl-24 pr-4">
+  <div class="flex items-center pl-5 w-15 pt-5">
+      <input id="position-filter-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+      <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+          Filter By Position
+      </label>
+  </div>
+
+  <div id="robotics-pos" class="flex items-center pl-5 hidden">
+      <input id="robotics-pos-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+      <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+          Robotics Software Engineer
+      </label>
+  </div>
+
+  <div id="sr-se-pos" class="flex items-center pl-5 hidden">
+        <input id="sr-se-pos-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+              Senior Software Engineer
+        </label>
+  </div>
+
+  <div id="PM-pos" class="flex items-center pl-5 hidden">
+        <input id="PM-pos-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+            Project/Program Manager
+        </label>
+  </div>
+
+  <div id="se-entry-pos" class="flex items-center pl-5 hidden">
+          <input id="se-entry-pos-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+          <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+              Software Engineer, Entry-Level
+          </label>
+  </div>
+  <div id="se-intern-pos" class="flex items-center pl-5 hidden">
+          <input id="se-intern-pos-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+          <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+             Software Engineering Intern
+          </label>
+  </div>
+  </div>
+
+  <span class="pr-32"></span>
+
+
+
+<div class="pl-24 pr-4">
+<div class="flex items-center pl-5 w-15 pt-5">
+    <input id="dept-filter-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+    <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+        Filter By Department
+    </label>
+</div>
+
+<div id="SE" class="flex items-center pl-5 hidden">
+    <input id="SE-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+    <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+        Software Engineering
+    </label>
+</div>
+
+<div id="PM" class="flex items-center pl-5 hidden">
+      <input id="PM-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+      <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+          Project/Program Manager
+      </label>
+</div>
+
+<div id="marketing" class="flex items-center pl-5 hidden">
+      <input id="marketing-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+      <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+            Marketing
+      </label>
+</div>
+<div id="PR" class="flex items-center pl-5 hidden">
+        <input id="PR-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+            PR
+        </label>
+</div>
+<div id="hiring" class="flex items-center pl-5 hidden">
+        <input id="hiring-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+           Hiring
+        </label>
+</div>
+<div id="it" class="flex items-center pl-5 hidden">
+        <input id="it-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+            IT
+        </label>
+</div>
+<div id="admin"class="flex items-center pl-5 hidden">
+        <input id="admin-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+            Admin
+        </label>
+</div>
+</div>
+
+<span class="pr-32"></span>
+
+<div class="pl-24 pr-4">
+<div class="flex items-center pl-5 pt-5">
+      <input id="hiring-filter-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+      <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+            Filter By Hiring Stage
+      </label>
+</div>
+
+<div id="just-applied" class="flex items-center pl-5 hidden">
+        <input id="just-applied-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                Just Applied
+        </label>
+</div>
+<div id="hr-screen-complete" class="flex items-center pl-5 hidden">
+        <input id="hr-screen-complete-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                HR Screen Complete
+        </label>
+</div>
+<div id="tech-screen-complete" class="flex items-center pl-5 hidden">
+        <input id="tech-screen-complete-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                Tech Screen Complete
+        </label>
+</div>
+<div id="final-interview-complete" class="flex items-center pl-5 hidden">
+        <input id="final-interview-complete-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                Final Interview Complete
+        </label>
+</div>
+<div id="offer-sent" class="flex items-center pl-5 hidden">
+        <input id="offer-sent-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+        <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                Offer Sent
+        </label>
+</div>
+
+</div>
+
+<span class="pr-32"></span>
+
+<div class="pl-24 pr-4">
+<div class="flex items-center pl-5 pt-5">
+                  <input id="skills-filter-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    Filter By Skills
+                  </label>
+</div>
+
+<div id="Rust" class="flex items-center pl-5 hidden">
+                  <input id="Rust-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    Rust
+                  </label>
+</div>
+<div id="Python" class="flex items-center pl-5 hidden">
+                  <input id="Python-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    Python
+                  </label>
+</div>
+<div id="JS" class="flex items-center pl-5 hidden">
+                  <input id="JS-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    JS
+                  </label>
+</div>
+<div id="Linux" class="flex items-center pl-5 hidden">
+                  <input id="Linux-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    Linux
+                  </label>
+</div>
+<div id="C" class="flex items-center pl-5 hidden">
+                  <input id="C-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    C
+                  </label>
+</div>
+<div id="Git" class="flex items-center pl-5 hidden">
+                  <input id="Git-checkbox" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                  <label for="filter-mobile-color-0" class="ml-3 min-w-0 flex-1 text-gray-500">
+                    Git
+                  </label>
+</div>
+                <span class="p-2"></span>
+
+</div>
+</div>
+
+
+
+<span class="p-2"></span>
+
+<!-- Table -->
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table id='test' class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Name
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Position / Department
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Hiring Stage
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Skills
+              </th>
+              <th scope="col" class="relative px-6 py-3">
+                <span class="sr-only">Edit</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+
+            <!-- Nick and Kaitlin were here -->
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="app.js"></script>
+
+
+
+
+</body>
+</html>
